@@ -1,7 +1,7 @@
 import random
 
 class Sudoku:
-    def __init__(self):
+    def _init_(self):
         self.board = [[0]*9 for _ in range(9)]
 
     def initialize_grid(self):
@@ -76,15 +76,26 @@ class Sudoku:
                 if self.board[i][j] == 0:
                     return (i, j)
         return None
-       
-    def print_board(self, board=None):
-        if board is None:
-            board = self.board
-        # Imprimir tablero
-        for row in board:
-            print(row) 
-            
 
+    def print_board(self):
+        # Imprimir tablero
+        for row in self.board:
+            print(row)     
+
+    def solve(self):
+        # Método 1 para resolver el Sudoku usando backtracking
+        empty_cell = self.find_empty_cell()
+        if not empty_cell:
+            return True
+        row, col = empty_cell
+        for num in range(1, 10):
+            if self.is_valid_move(row, col, num):
+                self.board[row][col] = num
+                if self.solve():
+                    return True
+                self.board[row][col] = 0
+        return False
+     
 
 if __name__ == "__main__":
     
