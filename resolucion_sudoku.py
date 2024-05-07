@@ -1,4 +1,4 @@
-import creacion_sudoku
+from creacion_sudoku import Sudoku
 
 def main():
     sudoku = Sudoku()
