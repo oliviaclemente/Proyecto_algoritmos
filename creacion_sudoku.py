@@ -76,11 +76,15 @@ class Sudoku:
                 if self.board[i][j] == 0:
                     return (i, j)
         return None
-
-    def print_board(self):
+       
+    def print_board(self, board=None):
+        if board is None:
+            board = self.board
         # Imprimir tablero
-        for row in self.board:
-            print(row)          
+        for row in board:
+            print(row) 
+            
+
 
 if __name__ == "__main__":
     

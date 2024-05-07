@@ -1,5 +1,6 @@
 from creacion_sudoku import Sudoku
 
+
 class SudokuSolver:
     def __init__(self, board):
         self.board = board
@@ -34,6 +35,7 @@ class SudokuSolver:
                 if self.board[i][j] == 0:
                     return (i, j)
         return None
+    
 
 def main():
     sudoku = Sudoku()
@@ -49,11 +51,8 @@ def main():
     solver.solve()
     
     solved_board = solver.board
-    sudoku.print_board(solved_board)
-    
-def print_board(self, board):
-    # Imprimir tablero
-    for row in board:
-        print(row)
+    sudoku.print_board()  
+    print("Sudoku resuelto:")
+    sudoku.print_board(solved_board)  
 
 main()
