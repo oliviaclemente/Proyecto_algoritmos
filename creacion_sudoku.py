@@ -83,6 +83,18 @@ class Sudoku:
             print(row)
 
 # Ejemplo de uso
+print("Sudoku nivel easy")
+
+sudoku0 = Sudoku()
+sudoku0.initialize_grid()
+sudoku0.generate_initial_numbers()
+sudoku0.solve_sudoku()
+sudoku0.remove_numbers("easy")
+sudoku0.print_board()
+
+print("")
+print("Sudoku nivel medium")
+
 sudoku = Sudoku()
 sudoku.initialize_grid()
 sudoku.generate_initial_numbers()
@@ -91,6 +103,17 @@ sudoku.remove_numbers("medium")
 sudoku.print_board()
 
 print("")
+print("Sudoku nivel hard")
+
+sudoku2 = Sudoku()
+sudoku2.initialize_grid()
+sudoku2.generate_initial_numbers()
+sudoku2.solve_sudoku()
+sudoku2.remove_numbers("hard")
+sudoku2.print_board()
+
+print("")
+print("Sudoku nivel expert")
 
 sudoku1 = Sudoku()
 sudoku1.initialize_grid()
