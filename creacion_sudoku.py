@@ -80,7 +80,7 @@ class Sudoku:
     def print_board(self):
         # Imprimir tablero
         for row in self.board:
-            print(row)
+            print(row)          
 
 if __name__ == "__main__":
     
