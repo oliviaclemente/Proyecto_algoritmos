@@ -1,0 +1,116 @@
+Clase Sudoku:
+    Método _init_:
+        Inicializar tablero como una matriz 9x9 de ceros
+    
+    Método initialize_grid:
+        Inicializar el tablero como una matriz 9x9 de ceros
+    
+    Método generate_initial_numbers:
+        Para i desde 0 hasta 17:
+            Generar fila y columna aleatorias
+            Generar un número aleatorio entre 1 y 9
+            Si el movimiento es válido:
+                Colocar el número en la fila y columna generadas
+    
+    Método solve_sudoku:
+        Encontrar una celda vacía
+        Si no hay celdas vacías:
+            Retornar Verdadero
+        Obtener la fila y columna de la celda vacía
+        Para cada número en el rango de 1 a 10:
+            Si el movimiento es válido:
+                Colocar el número en la fila y columna
+                Si solve_sudoku retorna Verdadero:
+                    Retornar Verdadero
+                Deshacer el movimiento
+        Retornar Falso
+    
+    Método verify_unique_solution:
+        Crear una copia del tablero original
+        Si solve_sudoku retorna Falso:
+            Retornar Falso
+        Restaurar el tablero original
+        Retornar Verdadero
+    
+    Método remove_numbers con parámetro dificultad:
+        Calcular la cantidad de números a eliminar según la dificultad
+        Crear una lista de todas las celdas del tablero
+        Mezclar aleatoriamente la lista de celdas
+        Para cada celda en la lista de celdas:
+            Eliminar un número de la celda
+    
+    Método is_valid_move con parámetros fila, columna y número:
+        Para cada índice en el rango de 0 a 8:
+            Si el número ya está en la fila o columna:
+                Retornar Falso
+        Calcular la fila y columna inicial del cuadrante
+        Para cada índice i en el rango de 0 a 2:
+            Para cada índice j en el rango de 0 a 2:
+                Si el número ya está en el cuadrante:
+                    Retornar Falso
+        Retornar Verdadero
+    
+    Método find_empty_cell:
+        Para cada fila en el tablero:
+            Para cada columna en la fila:
+                Si la celda está vacía:
+                    Retornar la fila y columna como una tupla
+        Retornar None si no se encuentra ninguna celda vacía
+    
+    Método print_board:
+        Para cada fila en el tablero:
+            Imprimir la fila
+    
+    Método solve:
+        Encontrar una celda vacía
+        Si no hay celdas vacías:
+            Retornar Verdadero
+        Obtener la fila y columna de la celda vacía
+        Para cada número en el rango de 1 a 10:
+            Si el movimiento es válido:
+                Colocar el número en la fila y columna
+                Si solve retorna Verdadero:
+                    Retornar Verdadero
+                Deshacer el movimiento
+        Retornar Falso
+
+if __name__ == "__main__":
+    Imprimir("Sudoku nivel easy")
+
+    sudoku0 = Sudoku()
+    sudoku0.initialize_grid()
+    sudoku0.generate_initial_numbers()
+    sudoku0.solve_sudoku()
+    sudoku0.remove_numbers("easy")
+    sudoku0.print_board()
+
+
+    Imprimir("Sudoku nivel medium")
+
+    sudoku = Sudoku()
+    sudoku.initialize_grid()
+    sudoku.generate_initial_numbers()
+    sudoku.solve_sudoku()
+    sudoku.remove_numbers("medium")
+    sudoku.print_board()
+
+
+    Imprimir("Sudoku nivel hard")
+
+    sudoku2 = Sudoku()
+    sudoku2.initialize_grid()
+    sudoku2.generate_initial_numbers()
+    sudoku2.solve_sudoku()
+    sudoku2.remove_numbers("hard")
+    sudoku2.print_board()
+
+
+    Imprimir("Sudoku nivel expert")
+
+    sudoku1 = Sudoku()
+    sudoku1.initialize_grid()
+    sudoku1.generate_initial_numbers()
+    sudoku1.solve_sudoku()
+    sudoku1.remove_numbers("expert")
+    sudoku1.print_board()
+
