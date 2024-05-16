@@ -114,3 +114,56 @@ if __name__ == "__main__":
     sudoku1.remove_numbers("expert")
     sudoku1.print_board()
 
+
+importar Sudoku desde creacion_sudoku
+
+Métodod principal():
+    sudoku = Sudoku()
+    sudoku.inicializar_tablero()
+    
+    dificultad = entrada("Elige el nivel de dificultad (fácil, medio, difícil, experto): ").convertir_a_minusculas()
+    mientras dificultad no esté en ["fácil", "medio", "difícil", "experto"]:
+        imprimir("Nivel de dificultad no válido.")
+        dificultad = entrada("Por favor, elige un nivel de dificultad válido (fácil, medio, difícil, experto): ").convertir_a_minusculas()
+    
+    sudoku.generar_numeros_iniciales()
+    sudoku.resolver_sudoku()
+    sudoku.quitar_numeros(dificultad)
+    sudoku.imprimir_tablero()
+
+    # Resolver el Sudoku generado
+    imprimir("\nResolviendo el Sudoku con el método 1:\n")
+    si sudoku.solve():
+        imprimir("Sudoku resuelto:")
+        sudoku.imprimir_tablero()
+    sino:
+        imprimir("No se pudo resolver el Sudoku.")
+
+principal()
+
+
+Función resolver_sudoku(sudoku):
+    Para cada fila en el tablero:
+        Para cada columna en la fila:
+            Si el valor en la celda es 0:
+                Para cada número del 1 al 9:
+                    Si el número es válido en esa posición según las reglas del Sudoku:
+                        Colocar el número en la celda
+                        Si resolver_sudoku(sudoku) devuelve verdadero:
+                            Devolver verdadero
+                        Sino:
+                            Quitar el número de la celda (volver a poner 0)
+                Devolver falso
+    Devolver verdadero
+
+Función es_valido(sudoku, fila, columna, número):
+    Para cada celda en la fila:
+        Si el número ya está en esa celda:
+            Devolver falso
+    Para cada celda en la columna:
+        Si el número ya está en esa celda:
+            Devolver falso
+    Para cada celda en el cuadrado 3x3 al que pertenece la celda:
+        Si el número ya está en esa celda:
+            Devolver falso
+    Devolver verdadero
