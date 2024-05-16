@@ -10,7 +10,7 @@ def main():
         difficulty = input("Por favor, elige un nivel de dificultad válido (easy, medium, hard, expert): ").lower()
     
     sudoku.generate_initial_numbers()
-    sudoku.solve_sudoku()
+    sudoku.solve()
     sudoku.remove_numbers(difficulty)
     sudoku.print_board()
 
@@ -21,5 +21,8 @@ def main():
         sudoku.print_board()
     else:
         print("No se pudo resolver el Sudoku.")
-
+        
+    
 main()
+
+

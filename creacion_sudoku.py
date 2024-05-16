@@ -17,19 +17,7 @@ class Sudoku:
             if self.is_valid_move(row, col, num):
                 self.board[row][col] = num
 
-    def solve_sudoku(self):
-        # Backtracking (vuelta atrás)
-        empty_cell = self.find_empty_cell()
-        if not empty_cell:
-            return True
-        row, col = empty_cell
-        for num in range(1, 10):
-            if self.is_valid_move(row, col, num):
-                self.board[row][col] = num
-                if self.solve_sudoku():
-                    return True
-                self.board[row][col] = 0
-        return False
+
 
     def verify_unique_solution(self):
         # Verificación de solución única
@@ -105,7 +93,7 @@ if __name__ == "__main__":
     sudoku0 = Sudoku()
     sudoku0.initialize_grid()
     sudoku0.generate_initial_numbers()
-    sudoku0.solve_sudoku()
+    sudoku0.solve()
     sudoku0.remove_numbers("easy")
     sudoku0.print_board()
 
@@ -115,7 +103,7 @@ if __name__ == "__main__":
     sudoku = Sudoku()
     sudoku.initialize_grid()
     sudoku.generate_initial_numbers()
-    sudoku.solve_sudoku()
+    sudoku.solve()
     sudoku.remove_numbers("medium")
     sudoku.print_board()
 
@@ -125,7 +113,7 @@ if __name__ == "__main__":
     sudoku2 = Sudoku()
     sudoku2.initialize_grid()
     sudoku2.generate_initial_numbers()
-    sudoku2.solve_sudoku()
+    sudoku2.solve()
     sudoku2.remove_numbers("hard")
     sudoku2.print_board()
 
@@ -135,6 +123,6 @@ if __name__ == "__main__":
     sudoku1 = Sudoku()
     sudoku1.initialize_grid()
     sudoku1.generate_initial_numbers()
-    sudoku1.solve_sudoku()
+    sudoku1.solve()
     sudoku1.remove_numbers("expert")
     sudoku1.print_board()
